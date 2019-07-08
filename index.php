@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
 	<body>
 		<h1>sup H1</h1>
@@ -10,28 +9,33 @@
 		<br />
 		<br />
 		<br />
-		<form action="UploadContent.php" method="POST" enctype="multipart/form-data">
-			File:
-    		<input type="file" name="image"> <input type="submit" value="Upload">
+		<form method="POST" action="storeImage.php">
+			<input type="file" accept="image/*;capture=camera" name="qwe">
+			<input type="submit">
 		</form>
-		<div id="my_camera"></div>
-		<input type=button value="Take Snapshot" onClick="take_snapshot()">
-		<script language="JavaScript">
-    Webcam.set({
-        width: 490,
-        height: 390,
-        image_format: 'jpeg',
-        jpeg_quality: 90
-    });
-  
-    Webcam.attach( '#my_camera' );
-  
-    function take_snapshot() {
-        Webcam.snap( function(data_uri) {
-            $(".image-tag").val(data_uri);
-            document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
-        } );
-    }
+
+		<video autoplay></video>
+
+<script>
+  var onFailSoHard = function(e) {
+    console.log('Reeeejected!', e);
+  };
+
+  // Not showing vendor prefixes.
+  navigator.getUserMedia('video', function(localMediaStream) {
+    var video = document.querySelector('video');
+    video.src = window.URL.createObjectURL(localMediaStream);
+
+    // Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
+    // See crbug.com/110938.
+    video.onloadedmetadata = function(e) {
+      // Ready to go. Do some stuff.
+    };
+  }, onFailSoHard);
+  navigator.webkitGetUserMedia('audio, video', function(localMediaStream) {
+  var video = document.querySelector('video');
+  video.src = window.webkitURL.createObjectURL(localMediaStream);
+}, onFailSoHard);
 </script>
 	</body>
 </html>
