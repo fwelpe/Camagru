@@ -217,6 +217,6 @@ class __TwigTemplate_7dcd1a8c9d05416ddbc3a9b7fa582ff54ce95ac3febb054d6b4af06dcdf
 
     public function getSourceContext()
     {
-        return new Source("", "server/databases/databases_footer.twig", "/home/fwelpe/Camagru/pMA/templates/server/databases/databases_footer.twig");
+        return new Source("", "server/databases/databases_footer.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/server/databases/databases_footer.twig");
     }
 }

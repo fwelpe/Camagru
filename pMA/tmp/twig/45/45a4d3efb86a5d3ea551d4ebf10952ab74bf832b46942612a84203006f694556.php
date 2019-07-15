@@ -51,6 +51,6 @@ class __TwigTemplate_d83354af361790834e13886eb83fe5e9afc120924aecb58a9d6f2645731
 
     public function getSourceContext()
     {
-        return new Source("", "login/footer.twig", "/home/fwelpe/Camagru/pMA/templates/login/footer.twig");
+        return new Source("", "login/footer.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/login/footer.twig");
     }
 }

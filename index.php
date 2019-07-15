@@ -41,6 +41,7 @@
 			context.drawImage(video);
 		})
 	</script>
+	echo "\u{1F602}";
 </body>
 
 </html>

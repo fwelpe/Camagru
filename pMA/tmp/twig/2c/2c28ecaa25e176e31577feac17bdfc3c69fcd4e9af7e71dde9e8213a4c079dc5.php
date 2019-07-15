@@ -11,8 +11,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* config/form_display/tabs_bottom.twig */
-class __TwigTemplate_43905b497f106e43edbee8690383ce9b9dc605872dc12004ed90e5414c186963 extends \Twig\Template
+/* login/footer.twig */
+class __TwigTemplate_c81f967f6f95ae4c3633d2102f1bbccf05c285358fafd6f27a694486362e79f4 extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
@@ -33,7 +33,7 @@ class __TwigTemplate_43905b497f106e43edbee8690383ce9b9dc605872dc12004ed90e5414c1
 
     public function getTemplateName()
     {
-        return "config/form_display/tabs_bottom.twig";
+        return "login/footer.twig";
     }
 
     public function getDebugInfo()
@@ -51,6 +51,6 @@ class __TwigTemplate_43905b497f106e43edbee8690383ce9b9dc605872dc12004ed90e5414c1
 
     public function getSourceContext()
     {
-        return new Source("", "config/form_display/tabs_bottom.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/config/form_display/tabs_bottom.twig");
+        return new Source("", "login/footer.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/login/footer.twig");
     }
 }

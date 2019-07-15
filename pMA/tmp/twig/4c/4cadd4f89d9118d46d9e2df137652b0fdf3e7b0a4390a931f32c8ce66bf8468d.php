@@ -12,7 +12,7 @@ use Twig\Source;
 use Twig\Template;
 
 /* login/header.twig */
-class __TwigTemplate_6d2fdc57fdbe184f8f6e6fc0aa8eb4852e82a11f60b3686b12e4537c613e5028 extends \Twig\Template
+class __TwigTemplate_194eda869403a5765137ce88cd895b49ad9cb18a0997b7968821eedcaef5d8af extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
@@ -34,7 +34,7 @@ class __TwigTemplate_6d2fdc57fdbe184f8f6e6fc0aa8eb4852e82a11f60b3686b12e4537c613
         echo "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"logo\">
 <img src=\"";
         // line 3
-        echo twig_escape_filter($this->env, $this->getAttribute(($context["theme"] ?? null), "getImgPath", [0 => "logo_right.png", 1 => "pma_logo.png"], "method"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["theme"]) ? $context["theme"] : null), "getImgPath", [0 => "logo_right.png", 1 => "pma_logo.png"], "method"), "html", null, true);
         echo "\" id=\"imLogo\" name=\"imLogo\" alt=\"phpMyAdmin\" border=\"0\" />
 </a>
 <h1>";

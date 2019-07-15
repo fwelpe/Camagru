@@ -82,6 +82,6 @@ class __TwigTemplate_907be04c40c90b07801aa340597c41e3c2b84f8c54b51007ae23a2a6056
 
     public function getSourceContext()
     {
-        return new Source("", "select_all.twig", "/home/fwelpe/Camagru/pMA/templates/select_all.twig");
+        return new Source("", "select_all.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/select_all.twig");
     }
 }

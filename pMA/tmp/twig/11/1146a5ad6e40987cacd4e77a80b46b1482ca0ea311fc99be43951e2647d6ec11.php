@@ -12,7 +12,7 @@ use Twig\Source;
 use Twig\Template;
 
 /* select_lang.twig */
-class __TwigTemplate_ba89af72ba8177833844533a73d5133cecc2cb4830a8a065961903f690d25a84 extends \Twig\Template
+class __TwigTemplate_a3820e6c917a23e3b407308baacc9c85d3fa6565c88619697f8ce60f51aa8184 extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
@@ -30,17 +30,17 @@ class __TwigTemplate_ba89af72ba8177833844533a73d5133cecc2cb4830a8a065961903f690d
         echo "    <form method=\"get\" action=\"index.php\" class=\"disableAjax\">
     ";
         // line 2
-        echo PhpMyAdmin\Url::getHiddenInputs(($context["_form_params"] ?? null));
+        echo PhpMyAdmin\Url::getHiddenInputs((isset($context["_form_params"]) ? $context["_form_params"] : null));
         echo "
 
     ";
         // line 4
-        if (($context["use_fieldset"] ?? null)) {
+        if ((isset($context["use_fieldset"]) ? $context["use_fieldset"] : null)) {
             // line 5
             echo "        <fieldset>
             <legend lang=\"en\" dir=\"ltr\">";
             // line 6
-            echo ($context["language_title"] ?? null);
+            echo (isset($context["language_title"]) ? $context["language_title"] : null);
             echo "</legend>
     ";
         } else {
@@ -48,7 +48,7 @@ class __TwigTemplate_ba89af72ba8177833844533a73d5133cecc2cb4830a8a065961903f690d
             echo "        <bdo lang=\"en\" dir=\"ltr\">
             <label for=\"sel-lang\">";
             // line 9
-            echo ($context["language_title"] ?? null);
+            echo (isset($context["language_title"]) ? $context["language_title"] : null);
             echo "</label>
         </bdo>
     ";
@@ -60,7 +60,7 @@ class __TwigTemplate_ba89af72ba8177833844533a73d5133cecc2cb4830a8a065961903f690d
     ";
         // line 15
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["available_languages"] ?? null));
+        $context['_seq'] = twig_ensure_traversable((isset($context["available_languages"]) ? $context["available_languages"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["language"]) {
             // line 16
             echo "        ";
@@ -91,7 +91,7 @@ class __TwigTemplate_ba89af72ba8177833844533a73d5133cecc2cb4830a8a065961903f690d
 
     ";
         // line 28
-        if (($context["use_fieldset"] ?? null)) {
+        if ((isset($context["use_fieldset"]) ? $context["use_fieldset"] : null)) {
             // line 29
             echo "        </fieldset>
     ";

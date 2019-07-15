@@ -72,6 +72,6 @@ class __TwigTemplate_cffe86cd6e5fd03d269efa03c8d7d534a67e8fef4625cf7788a8d19542f
 
     public function getSourceContext()
     {
-        return new Source("", "filter.twig", "/home/fwelpe/Camagru/pMA/templates/filter.twig");
+        return new Source("", "filter.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/filter.twig");
     }
 }
