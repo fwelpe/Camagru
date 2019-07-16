@@ -68,6 +68,6 @@ class __TwigTemplate_ef0ba4d91a9211e09ac3c57b501fcdd6385535eb6bc5d9238bbb02ee84f
 
     public function getSourceContext()
     {
-        return new Source("", "config/form_display/group_header.twig", "/home/fwelpe/Camagru/pMA/templates/config/form_display/group_header.twig");
+        return new Source("", "config/form_display/group_header.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/config/form_display/group_header.twig");
     }
 }

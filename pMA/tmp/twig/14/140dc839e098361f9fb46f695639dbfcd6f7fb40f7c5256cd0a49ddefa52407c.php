@@ -68,6 +68,6 @@ class __TwigTemplate_8a42049199ee5da4049aabe13b937bc74ff845bc3c5c5d8ae9ac1ee93fb
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/empty_table.twig", "/home/fwelpe/Camagru/pMA/templates/database/structure/empty_table.twig");
+        return new Source("", "database/structure/empty_table.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/database/structure/empty_table.twig");
     }
 }

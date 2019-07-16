@@ -72,6 +72,6 @@ class __TwigTemplate_9527ca69890e82e5984c6b2e84a1ba3a073cc2d1982e1485f33a4bbc536
 
     public function getSourceContext()
     {
-        return new Source("", "table/structure/move_columns_dialog.twig", "/home/fwelpe/Camagru/pMA/templates/table/structure/move_columns_dialog.twig");
+        return new Source("", "table/structure/move_columns_dialog.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/table/structure/move_columns_dialog.twig");
     }
 }

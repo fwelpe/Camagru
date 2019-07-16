@@ -134,6 +134,6 @@ class __TwigTemplate_0ee456f12cbe2a1122bf3fbc7675473f35c4928bf4638b1afc4ac808292
 
     public function getSourceContext()
     {
-        return new Source("", "table/structure/optional_action_links.twig", "/home/fwelpe/Camagru/pMA/templates/table/structure/optional_action_links.twig");
+        return new Source("", "table/structure/optional_action_links.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/table/structure/optional_action_links.twig");
     }
 }

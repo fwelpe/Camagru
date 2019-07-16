@@ -79,6 +79,6 @@ class __TwigTemplate_5937fe5e814a4d2c84f4b182dd3cfa0b8dc46b3a5aaa091b4f5b7eac57e
 
     public function getSourceContext()
     {
-        return new Source("", "display/results/multi_row_operations_form.twig", "/home/fwelpe/Camagru/pMA/templates/display/results/multi_row_operations_form.twig");
+        return new Source("", "display/results/multi_row_operations_form.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/display/results/multi_row_operations_form.twig");
     }
 }

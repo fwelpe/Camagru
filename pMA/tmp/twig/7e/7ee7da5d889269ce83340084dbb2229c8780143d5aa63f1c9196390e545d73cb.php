@@ -191,6 +191,6 @@ class __TwigTemplate_b47f1ca3e124bf7c9b55ba27f4ec7342bd9bd2ae315c8a7a58a9861b135
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/check_all_tables.twig", "/home/fwelpe/Camagru/pMA/templates/database/structure/check_all_tables.twig");
+        return new Source("", "database/structure/check_all_tables.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/database/structure/check_all_tables.twig");
     }
 }

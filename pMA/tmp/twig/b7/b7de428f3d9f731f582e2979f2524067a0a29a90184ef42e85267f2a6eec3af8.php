@@ -11,8 +11,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* database/structure/browse_table.twig */
-class __TwigTemplate_9735dc4caa16940aeeca8999b9ae4f11cc1e8b1e8d05409d0895cf0c0a42f577 extends \Twig\Template
+/* fk_checkbox.twig */
+class __TwigTemplate_4dac815e28192bf7bbca4d94775bd5f65775daf75c12bac82f47dd07f083456b extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
@@ -27,20 +27,21 @@ class __TwigTemplate_9735dc4caa16940aeeca8999b9ae4f11cc1e8b1e8d05409d0895cf0c0a4
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        echo "<a href=\"sql.php";
-        echo ($context["tbl_url_query"] ?? null);
-        echo "&amp;pos=0\">
-    ";
-        // line 2
-        echo ($context["title"] ?? null);
-        echo "
-</a>
+        echo "<input type=\"hidden\" name=\"fk_checks\" value=\"0\">
+<input type=\"checkbox\" name=\"fk_checks\" id=\"fk_checks\" value=\"1\"";
+        // line 3
+        echo ((($context["checked"] ?? null)) ? (" checked") : (""));
+        echo ">
+<label for=\"fk_checks\">";
+        // line 4
+        echo _gettext("Enable foreign key checks");
+        echo "</label>
 ";
     }
 
     public function getTemplateName()
     {
-        return "database/structure/browse_table.twig";
+        return "fk_checkbox.twig";
     }
 
     public function isTraitable()
@@ -50,7 +51,7 @@ class __TwigTemplate_9735dc4caa16940aeeca8999b9ae4f11cc1e8b1e8d05409d0895cf0c0a4
 
     public function getDebugInfo()
     {
-        return array (  35 => 2,  30 => 1,);
+        return array (  37 => 4,  33 => 3,  30 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -63,6 +64,6 @@ class __TwigTemplate_9735dc4caa16940aeeca8999b9ae4f11cc1e8b1e8d05409d0895cf0c0a4
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/browse_table.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/database/structure/browse_table.twig");
+        return new Source("", "fk_checkbox.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/fk_checkbox.twig");
     }
 }

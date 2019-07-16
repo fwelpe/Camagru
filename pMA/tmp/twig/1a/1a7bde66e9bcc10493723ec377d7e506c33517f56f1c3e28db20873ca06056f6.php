@@ -111,6 +111,6 @@ class __TwigTemplate_3f4f78bd7581616d8e541c4d578a678b663f9dec72b3dd74f0bc0e93ee9
 
     public function getSourceContext()
     {
-        return new Source("", "table/structure/table_structure_header.twig", "/home/fwelpe/Camagru/pMA/templates/table/structure/table_structure_header.twig");
+        return new Source("", "table/structure/table_structure_header.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/table/structure/table_structure_header.twig");
     }
 }

@@ -2,16 +2,14 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="css/w3.css">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="css/w3.css" />
+	<link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body bgcolor="f2f1f3">
-	<header>
-		<div class="w3-container w3-blue">
-			<div>asd</div>
-			<p>The w3-container class is an important w3.CSS class.</p>
-		</div>
-	</header>
+	<?php include("header.html") ?>
 	<h1>sup. H1</h1>
 	<?php echo "echo from PHP" ?>
 	<br />
@@ -35,13 +33,12 @@
 				};
 			})
 			.catch((err) => {
-				console.log(err.name + ": " + err.message);
+				// console.log(err.name + ": " + err.message);
 			});
 		video.addEventListener("click", () => {
-			context.drawImage(video);
+			context.drawImage(video, 0, 0);
 		})
 	</script>
-	echo "\u{1F602}";
 </body>
 
 </html>

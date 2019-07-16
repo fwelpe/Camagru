@@ -76,6 +76,6 @@ class __TwigTemplate_68f21578a023ff44c9f59a6e3a0e0946d767fdc24e0c30ccca70ed8dafe
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/favorite_anchor.twig", "/home/fwelpe/Camagru/pMA/templates/database/structure/favorite_anchor.twig");
+        return new Source("", "database/structure/favorite_anchor.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/database/structure/favorite_anchor.twig");
     }
 }
