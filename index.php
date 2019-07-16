@@ -36,7 +36,7 @@
 				// console.log(err.name + ": " + err.message);
 			});
 		video.addEventListener("click", () => {
-			context.drawImage(video, 0, 0);
+			context.drawImage(video, 0, 0, canvas.width, canvas.height);
 		})
 	</script>
 </body>
