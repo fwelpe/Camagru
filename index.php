@@ -11,7 +11,18 @@
 <body bgcolor="f2f1f3">
 	<?php include("header.html") ?>
 	<canvas id="canvas"></canvas>
-	<video id="video" autoplay width="640" height="480"></video>
+	<video id="video" autoplay width="500" height="500"></video>
+	<script>
+		const testFolder = './stickers/src/';
+const fs = require('fs');
+
+fs.readdir(testFolder, (err, files) => {
+  files.forEach(file => {
+    console.log(file);
+  });
+});
+
+	</script>
 	<script>
 		const video = document.querySelector('video');
 		const canvas = document.getElementById("canvas");
@@ -34,13 +45,14 @@
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
 		});
 	</script>
-
-	<img src="stickers/src/file_3567088.webp" alt="WebP rules." />
-
-	<form method='post' action='up.php' enctype='multipart/form-data'>
-  <input type='file' name='files[]' multiple />
-  <input type='submit' value='Submit' name='submit' />
-</form>
+	<!-- <form method='post' action='up.php' enctype='multipart/form-data'>
+		<input type='file' name='files[]' multiple />
+		<input type='submit' value='Submit' name='submit' />
+	</form> -->
+	<form action="4-upload.php" method="post" enctype="multipart/form-data">
+		<input type="file" name="upFile" id="upFile" accept=".png,.gif,.jpg,.webp" required>
+		<input type="submit" name="submit" value="Upload Image">
+	</form>
 </body>
 
 </html>
