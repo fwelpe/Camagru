@@ -14,14 +14,13 @@
 	<video id="video" autoplay width="500" height="500"></video>
 	<script>
 		const testFolder = './stickers/src/';
-const fs = require('fs');
+		const fs = require('fs');
 
-fs.readdir(testFolder, (err, files) => {
-  files.forEach(file => {
-    console.log(file);
-  });
-});
-
+		fs.readdir(testFolder, (err, files) => {
+			files.forEach(file => {
+				console.log(file);
+			});
+		});
 	</script>
 	<script>
 		const video = document.querySelector('video');
@@ -53,6 +52,31 @@ fs.readdir(testFolder, (err, files) => {
 		<input type="file" name="upFile" id="upFile" accept=".png,.gif,.jpg,.webp" required>
 		<input type="submit" name="submit" value="Upload Image">
 	</form>
+	<?php
+	$dir = 'stickers/src/'; // Папка с изображениями
+	$cols = 3; // Количество столбцов в будущей таблице с картинками
+	$files = scandir($dir); // Берём всё содержимое директории
+	echo "<table>"; // Начинаем таблицу
+	$k = 0; // Вспомогательный счётчик для перехода на новые строки
+	for ($i = 0; $i < count($files); $i++) { // Перебираем все файлы
+		if (($files[$i] != ".") && ($files[$i] != "..")) { // Текущий каталог и родительский пропускаем
+			if ($k % $cols == 0) echo "<tr>"; // Добавляем новую строку
+			echo "<td>"; // Начинаем столбец
+			$path = $dir . $files[$i]; // Получаем путь к картинке
+			echo "<a href='$path'>"; // Делаем ссылку на картинку
+			echo "<img src='$path' alt='' width='100' />"; // Вывод превью картинки
+			echo "</a>"; // Закрываем ссылку
+			echo "</td>"; // Закрываем столбец
+			/* Закрываем строку, если необходимое количество было выведено, либо данная итерация последняя */
+			if ((($k + 1) % $cols == 0) || (($i + 1) == count($files))) echo "</tr>";
+			$k++; // Увеличиваем вспомогательный счётчик
+		}
+	}
+	echo "</table>"; // Закрываем таблицу
+	?>
+	<script>
+
+	</script>
 </body>
 
 </html>
