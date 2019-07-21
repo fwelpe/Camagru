@@ -62,7 +62,14 @@
 body {
 	color: #1c1c1c;
 }
+
 #canvas {
 	width: 640px;
 	height: 480px;
+}
+
+#stickers {
+	width: device-width;
+	height: content-height;
+	overflow-x: scroll;
 }
