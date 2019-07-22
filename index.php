@@ -21,10 +21,10 @@
 		for ($i = 0; $i < count($files); $i++) { // Перебираем все файлы
 			if (($files[$i] != ".") && ($files[$i] != "..")) { // Текущий каталог и родительский пропускаем
 				// if ($k % $cols == 0) echo "<tr>"; // Добавляем новую строку
-				echo "<td id=" . $files[$i] . ">"; // Начинаем столбец
+				echo "<td>"; // Начинаем столбец
 				$path = $dir . $files[$i]; // Получаем путь к картинке
 				echo "<a href='$path'>"; // Делаем ссылку на картинку
-				echo "<img src='$path' alt='' width='100' />"; // Вывод превью картинки
+				echo "<img id=" . $files[$i] . " src='$path' alt='' width='100' />"; // Вывод превью картинки
 				echo "</a>"; // Закрываем ссылку
 				echo "</td>"; // Закрываем столбец
 				/* Закрываем строку, если необходимое количество было выведено, либо данная итерация последняя */
@@ -36,8 +36,9 @@
 		echo "</table>"; // Закрываем таблицу
 		?>
 	</div>
-	<canvas id="canvas"></canvas>
+	<canvas id="canvas" width="500" height="500"></canvas>
 	<video id="video" autoplay width="500" height="500"></video>
+	<img id="one" src="/stickers/img/file_3567082.jpg" alt='' width='200' />
 	<script>
 		const video = document.querySelector('video');
 		const canvas = document.getElementById("canvas");
@@ -46,7 +47,7 @@
 			video: true
 		};
 		const js_array = [<?php echo '"'.implode('","', $files).'"' ?>];
-		const img = document.querySelector("file_3567082.jpg");
+		var img = document.getElementById('one');
 
 		navigator.mediaDevices.getUserMedia(constraints)
 			.then((mediaStream) => {
@@ -61,7 +62,7 @@
 		video.addEventListener("click", () => {
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
 		});
-		context.drawImage(img, 0, 0, canvas.width, canvas.height);
+		context.drawImage(img, 0, 0);
 	</script>
 </body>
 
