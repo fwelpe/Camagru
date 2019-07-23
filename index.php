@@ -38,7 +38,7 @@
 	</div>
 	<canvas id="canvas" width="500" height="500"></canvas>
 	<video id="video" autoplay width="500" height="500"></video>
-	<img id="one" src="/stickers/img/file_3567082.jpg" alt='' width='200' />
+	<img id="one" src="/stickers/src/file_3567082.webp" alt='' width='200' />
 	<script>
 		const video = document.querySelector('video');
 		const canvas = document.getElementById("canvas");
