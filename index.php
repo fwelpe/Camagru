@@ -38,15 +38,19 @@
 	</div>
 	<canvas id="canvas" width="500" height="500"></canvas>
 	<video id="video" autoplay width="500" height="500"></video>
-	<img id="one" src="/stickers/src/file_3567082.webp" alt='' width='200' />
+	<img id="one" src="stickers/expl.png" alt='' width='200' />
 	<script>
+		const c = 200;
 		const video = document.querySelector('video');
 		const canvas = document.getElementById("canvas");
 		const context = canvas.getContext("2d");
 		const constraints = {
-			video: true
+			video: {
+				width: 500,
+				height: 500
+			}
 		};
-		const js_array = [<?php echo '"'.implode('","', $files).'"' ?>];
+		const js_array = [<?php echo '"' . implode('","', $files) . '"' ?>];
 		var img = document.getElementById('one');
 
 		navigator.mediaDevices.getUserMedia(constraints)
@@ -62,7 +66,15 @@
 		video.addEventListener("click", () => {
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
 		});
-		context.drawImage(img, 0, 0);
+		img.addEventListener("click", () => {
+			context.drawImage(img, 0, 0, img.width, img.height);
+		});
+		canvas.addEventListener("click", (e) => {
+			var rect = e.target.getBoundingClientRect();
+			var x = e.clientX - rect.left; //x position within the element.
+			var y = e.clientY - rect.top; //y position within the element.
+			context.drawImage(img, x - c/2, y - c/2, c, c);
+		})
 	</script>
 </body>
 
