@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		select#gender option[value="male"] {
+			background-image: url(http://localhost:8080/stickers/img/file_3567082.jpg);
+		}
+
+		select#gender option[value="female"] {
+			background-image: url(stickers/img/file_3567082.jpg);
+		}
+
+		select#gender option[value="others"] {
+			background-image: url(stickers/img/file_3567082.jpg);
+		}
+	</style>
+</head>
+
+<body>
+	<select id="gender">
+		<option>male</option>
+		<option>female</option>
+		<option>others</option>
+	</select>
+	<div class="option">
+		<input type="radio" name="color" value="green" id="color-green" />
+		<label for="color-green">
+			<img src="http://placehold.it/22/00ff00/ffffff" alt="" /> Green
+		</label>
+</body>
+
+</html>

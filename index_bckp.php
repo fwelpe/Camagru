@@ -60,10 +60,22 @@
 				video.onloadedmetadata = () => {
 					video.play();
 				};
+			})
+			.catch((err) => {
+				// console.log(err.name + ": " + err.message);
 			});
 		video.addEventListener("click", () => {
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
 		});
+		img.addEventListener("click", () => {
+			context.drawImage(img, 0, 0, img.width, img.height);
+		});
+		canvas.addEventListener("click", (e) => {
+			var rect = e.target.getBoundingClientRect();
+			var x = e.clientX - rect.left;
+			var y = e.clientY - rect.top;
+			context.drawImage(img, x - c/2, y - c/2, c, c);
+		})
 	</script>
 </body>
 
