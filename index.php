@@ -12,7 +12,7 @@
 	<?php include("header.html") ?>
 	<div id="stickers">
 		<?php
-		$dir = 'stickers/img/'; // Папка с изображениями
+		$dir = 'stickers/src/'; // Папка с изображениями
 		$cols = 3; // Количество столбцов в будущей таблице с картинками
 		$files = scandir($dir); // Берём всё содержимое директории
 		echo "<table>"; // Начинаем таблицу
@@ -39,7 +39,6 @@
 	<canvas id="canvas"></canvas>
 	<canvas id="canvas-real"></canvas>
 	<video id="video" autoplay width="500" height="500"></video>
-	<img id="one" src="stickers/expl.png" alt='' width='200' />
 	<script>
 		const c = 200;
 		const video = document.querySelector('video');
@@ -51,8 +50,7 @@
 				height: 500
 			}
 		};
-		const js_array = [<?php echo '"' . implode('","', $files) . '"' ?>];
-		var img = document.getElementById('one');
+		const ids = [<?php echo '"' . implode('","', $files) . '"' ?>];
 
 		navigator.mediaDevices.getUserMedia(constraints)
 			.then((mediaStream) => {
@@ -63,6 +61,12 @@
 			});
 		video.addEventListener("click", () => {
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
+		});
+		ids.forEach((id) => {
+			if (id == '.' || id == '..')
+				return;
+			const domEl = document.getElementById(id);
+
 		});
 	</script>
 </body>
