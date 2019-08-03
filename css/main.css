@@ -67,17 +67,20 @@ body {
 	display: none;
 }
 
-#canvas-real {
-	width: 500px;
-	height: 500px;
-}
-
 #stickers {
 	width: device-width;
 	height: content-height;
 	overflow-x: scroll;
 }
 
-#one {
-	display: block;
+#out {
+	width: 500px;
+	height: 500px;
+}
+
+#video {
+}
+
+#flex {
+	display: flex;
 }
