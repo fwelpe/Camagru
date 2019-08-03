@@ -12,7 +12,7 @@
 	<?php include("header.html") ?>
 	<div id="stickers">
 		<?php
-		$dir = 'stickers/src/'; // Папка с изображениями
+		$dir = 'stickers/img/'; // Папка с изображениями
 		$cols = 3; // Количество столбцов в будущей таблице с картинками
 		$files = scandir($dir); // Берём всё содержимое директории
 		echo "<table>"; // Начинаем таблицу
@@ -42,8 +42,10 @@
 	<script>
 		const c = 200;
 		const video = document.querySelector('video');
-		const canvas = document.getElementById("canvas");
-		const context = canvas.getContext("2d");
+		const canvas = document.getElementById('canvas');
+		const canvasReal = document.getElementById("canvas-real")
+		const context = canvas.getContext('2d');
+		const contextReal = canvasReal.getContext('2d');
 		const constraints = {
 			video: {
 				width: 500,
@@ -51,6 +53,7 @@
 			}
 		};
 		const ids = [<?php echo '"' . implode('","', $files) . '"' ?>];
+		let pict;
 
 		navigator.mediaDevices.getUserMedia(constraints)
 			.then((mediaStream) => {
@@ -68,6 +71,29 @@
 			const domEl = document.getElementById(id);
 
 		});
+		/* fetch('pic.php')
+			.catch((err) =>console.log(err))
+			.then((req) => {
+				pict = req.blob();
+			})
+			.then(images => {
+				outside = URL.createObjectURL(images)
+				console.log(outside)
+			})
+		context.drawImage(pict, 0, 0); */
+		const Async = async () => {
+			let response = await fetch('pic.php');
+			let blob = await response.blob(); // скачиваем как Blob-объект
+
+			// создаём <img>
+			let img = document.createElement('img');
+			// img.style = 'position:fixed;top:10px;left:10px;width:100px';
+			document.body.append(img);
+
+			// выводим на экран
+			img.src = URL.createObjectURL(blob);
+		}
+		Async();
 	</script>
 </body>
 
