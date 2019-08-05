@@ -71,6 +71,7 @@ body {
 	width: device-width;
 	height: content-height;
 	overflow-x: scroll;
+	display: flex;
 }
 
 #out {
@@ -84,3 +85,11 @@ body {
 #flex {
 	display: flex;
 }
+
+.sticker {
+	display: block;
+	max-width: 230px;
+	max-height: 95px;
+	width: auto;
+	height: auto;
+  }

@@ -12,28 +12,14 @@
 	<?php include("header.html") ?>
 	<div id="stickers">
 		<?php
-		$dir = 'stickers/img/'; // Папка с изображениями
-		$cols = 3; // Количество столбцов в будущей таблице с картинками
-		$files = scandir($dir); // Берём всё содержимое директории
-		echo "<table>"; // Начинаем таблицу
-		echo "<tr>";
-		$k = 0; // Вспомогательный счётчик для перехода на новые строки
-		for ($i = 0; $i < count($files); $i++) { // Перебираем все файлы
-			if (($files[$i] != ".") && ($files[$i] != "..")) { // Текущий каталог и родительский пропускаем
-				// if ($k % $cols == 0) echo "<tr>"; // Добавляем новую строку
-				echo "<td>"; // Начинаем столбец
-				$path = $dir . $files[$i]; // Получаем путь к картинке
-				echo "<a href='$path'>"; // Делаем ссылку на картинку
-				echo "<img id=" . $files[$i] . " src='$path' alt='' width='100' />"; // Вывод превью картинки
-				echo "</a>"; // Закрываем ссылку
-				echo "</td>"; // Закрываем столбец
-				/* Закрываем строку, если необходимое количество было выведено, либо данная итерация последняя */
-				// if ((($k + 1) % $cols == 0) || (($i + 1) == count($files))) echo "</tr>";
-				$k++; // Увеличиваем вспомогательный счётчик
+		$dir = 'stickers/src/';
+		$files = scandir($dir);
+		for ($i = 0; $i < count($files); $i++) {
+			if (($files[$i] != ".") && ($files[$i] != "..")) {
+				$path = $dir . $files[$i];
+				echo "<img id=" . $files[$i] . " class='sticker' src='$path' alt='' />";
 			}
 		}
-		echo "</tr>";
-		echo "</table>"; // Закрываем таблицу
 		?>
 	</div>
 	<div id="flex">
@@ -42,7 +28,6 @@
 	</div>
 	<canvas id="canvas"></canvas>
 	<script>
-		const c = 200;
 		const video = document.querySelector('video');
 		const canvas = document.getElementById('canvas');
 		const context = canvas.getContext('2d');
@@ -52,8 +37,16 @@
 				height: 500
 			}
 		};
-		const ids = [<?php echo '"' . implode('","', $files) . '"' ?>];
-		let pict;
+		const ids = [<?php echo '"' . implode('","', $files) . '"' ?>].filter((id) => {
+			return (id != '.' && id != '..')
+		});
+		const data = {
+			width: 250;
+			height: 250;
+			photo_id: null,
+			name: 'petr',
+		}
+		let captured;
 
 		navigator.mediaDevices.getUserMedia(constraints)
 			.then((mediaStream) => {
@@ -61,26 +54,18 @@
 				video.onloadedmetadata = () => {
 					video.play();
 				};
+			})
+			.catch((err) => {
+				// console.error(err);
 			});
 		video.addEventListener("click", () => {
 			context.drawImage(video, 0, 0, canvas.width, canvas.height);
+			captured = video;
 		});
 		ids.forEach((id) => {
-			if (id == '.' || id == '..')
-				return;
 			const domEl = document.getElementById(id);
 
 		});
-		/* fetch('pic.php')
-			.catch((err) =>console.log(err))
-			.then((req) => {
-				pict = req.blob();
-			})
-			.then(images => {
-				outside = URL.createObjectURL(images)
-				console.log(outside)
-			})
-		context.drawImage(pict, 0, 0); */
 		fetch('pic.php')
 			.then((r) => r.blob())
 			.then((blob) => out.src = URL.createObjectURL(blob));
