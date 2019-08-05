@@ -79,17 +79,15 @@ body {
 	height: 500px;
 }
 
-#video {
-}
+#video {}
 
 #flex {
 	display: flex;
 }
 
 .sticker {
-	display: block;
 	max-width: 230px;
 	max-height: 95px;
 	width: auto;
 	height: auto;
-  }
+}
