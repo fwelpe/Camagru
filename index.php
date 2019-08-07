@@ -59,7 +59,7 @@
 					body: JSON.stringify(data)
 				})
 				.then((r) => {console.log(r); return r.blob()})
-				.then((blob) => out.src = URL.createObjectURL(blob))
+				.then((blob) => {console.log(blob); out.src = URL.createObjectURL(blob)})
 				.catch((err) => {
 					// console.error(err);
 				});
