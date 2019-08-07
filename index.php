@@ -32,6 +32,7 @@
 	<script>
 		const video = document.querySelector('video');
 		const canvas = document.getElementById('canvas');
+		const out = document.getElementById('out');
 		canvas.width = 500;
 		canvas.height = 500;
 		const context = canvas.getContext('2d');
@@ -86,10 +87,16 @@
 			} else {
 				domEl.addEventListener("click", () => {
 					data.sticker_id = id;
-					result_req(data);
+					// result_req(data);
 				})
 			}
 		});
+		out.addEventListener("click", (e) => {
+			const rect = e.target.getBoundingClientRect();
+			data.width = e.clientX - rect.left;
+			data.height = e.clientY - rect.top;
+			result_req(data);
+		})
 	</script>
 </body>
 
