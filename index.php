@@ -25,11 +25,15 @@
 		?>
 	</div>
 	<div id="flex">
-		<img id="out" />
 		<video id="video" autoplay width="500" height="500"></video>
 	</div>
+	<img id="out" src="NoImage.png" />
 	<canvas id="canvas"></canvas>
-	<script>
+	<form enctype="multipart/form-data">
+		<input type="file" id="customimg" />
+		<button type="button" onclick="upload_mainpic()">Enter</button>
+	</form>
+	<script type='text/javascript'>
 		const video = document.querySelector('video');
 		const canvas = document.getElementById('canvas');
 		const out = document.getElementById('out');
@@ -50,6 +54,22 @@
 			capturedURI: null,
 		};
 
+		window.onload = () => {
+			context.drawImage(out, 0, 0, canvas.width, canvas.height);
+			data.capturedURI = canvas.toDataURL();
+		};
+		const upload_mainpic = () => {
+			const customimg = document.getElementById('customimg');
+			if (customimg.files.length) {
+				const reader = new FileReader();
+				reader.onload = (e) => {
+					out.src = e.target.result;
+					data.capturedURI = e.target.result;
+					result_req(data);
+				}
+				reader.readAsDataURL(customimg.files[0]);
+			}
+		}
 		const result_req = (data) => {
 			fetch('pic.php', {
 					headers: {
@@ -59,8 +79,14 @@
 					method: "POST",
 					body: JSON.stringify(data)
 				})
-				.then((r) => {console.log(r); return r.blob()})
-				.then((blob) => {console.log(blob); out.src = URL.createObjectURL(blob)})
+				.then((r) => {
+					// console.log(r);
+					return r.blob()
+				})
+				.then((blob) => {
+					// console.log(blob);
+					out.src = URL.createObjectURL(blob)
+				})
 				.catch((err) => {
 					// console.error(err);
 				});
@@ -87,7 +113,7 @@
 			} else {
 				domEl.addEventListener("click", () => {
 					data.sticker_id = id;
-					// result_req(data);
+					result_req(data);
 				})
 			}
 		});

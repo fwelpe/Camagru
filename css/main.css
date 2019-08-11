@@ -74,12 +74,10 @@ body {
 	display: flex;
 }
 
-#out {
+/* #out {
 	width: 500px;
 	height: 500px;
-}
-
-#video {}
+} */
 
 #flex {
 	display: flex;
