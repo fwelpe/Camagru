@@ -9,7 +9,7 @@ $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 $pdo->exec("CREATE TABLE IF NOT EXISTS `users` (
 	`id` INT AUTO_INCREMENT PRIMARY KEY,
 	`name` VARCHAR(32),
-	`email` VARCHAR(100)
+	`email` VARCHAR(100),
 	`confirmed` BOOLEAN DEFAULT 0,
 	`hash` VARCHAR(255)
   )");

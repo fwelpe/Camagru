@@ -1,3 +1,11 @@
+<?php
+session_start();
+if ($_POST["login"]) {
+	$_SESSION["user"] = $_POST["login"];
+	header("Location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -6,10 +14,12 @@
 	<title>Camagru: Login</title>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='css/w3.css'>
 </head>
 
 <body>
-	<form method="POST" action=".">
+	<?php include("header.html") ?>
+	<form method="POST" action="#">
 		<input type="text" name="login" value="" placeholder="Username" />
 		<br />
 		<input type="password" name="passwd" value="" placeholder="Password" />
