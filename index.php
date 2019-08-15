@@ -19,7 +19,8 @@
 				unset($files[$i]);
 			} else {
 				$path = $dir . $files[$i];
-				echo "<img id=" . $files[$i] . " class='sticker' src='$path' alt='' />";
+				echo "<img id=" . $files[$i] .
+				" class='sticker' src='$path' alt='' />";
 			}
 		}
 		?>
