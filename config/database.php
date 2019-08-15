@@ -1,7 +1,7 @@
 <?php
 
-$DB_DSN_FIRST = "mysql:dbname=gru;";
-$DB_DSN = "mysql:dbname=gru;host=95.165.129.236";
+$DB_DSN_ONCE = "mysql:host=localhost";
+$DB_DSN = "mysql:host=localhost;dbname=gru";
 $DB_USER = "root";
 $DB_PASSWORD = "ewe4";
 
