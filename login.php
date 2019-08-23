@@ -1,20 +1,21 @@
 <?php
 session_start();
 require("config/database.php");
-if ($_POST["uname"]) {
+if ($_POST && $_POST["uname"]) {
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$q = $pdo->prepare("SELECT hash FROM users WHERE name = :name");
 	$q->bindParam(':name', $_POST["uname"]);
 	$q->execute();
-	foreach($q as $v) {
-		var_dump($v);
-		echo '<br />';
-	}
-	/* if (hash('gost-crypto', $_POST["psw"]) === $q) {
+	$hash = $q->fetch()["hash"];
+	$hash_in = hash('gost-crypto', $_POST["psw"]);
+	/* echo $hash;
+	echo "<br /><br /><br />";
+	echo $hash_in; */
+	if ($hash == $hash_in) {
 		$_SESSION["user"] = $_POST["uname"];
 		header("Location: index.php");
-	} */
+	}
 }
 ?>
 

@@ -1,2 +1,2 @@
 <?php
-error_log(hash('gost-crypto', "ewe4"), 4);
+var_dump(hash('gost-crypto', "ewe4"));
