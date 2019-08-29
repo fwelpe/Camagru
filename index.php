@@ -20,7 +20,8 @@ if (!$_SESSION["user"])
 		<?php
 		$dir = 'stickers/src/';
 		$files = scandir($dir);
-		for ($i = 0; $files[$i]; $i++) {
+		$arr_l = count($files);
+		for ($i = 0; $i < $arr_l; $i++) {
 			if (($files[$i] == ".") || ($files[$i] == "..")) {
 				unset($files[$i]);
 			} else {
