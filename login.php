@@ -101,7 +101,7 @@ if ($_POST && $_POST["uname"]) {
 </head>
 
 <body>
-	<?php include("header.html") ?>
+	<?php include("header2.html") ?>
 	<form action="#" method="POST">
 
 

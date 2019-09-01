@@ -131,6 +131,7 @@ if (!$_SESSION["user"])
 			data.height = e.clientY - rect.top;
 			result_req(data);
 		})
+		console.log(window);
 	</script>
 </body>
 
