@@ -96,7 +96,7 @@
 
 <body>
 	<?php include("header2.html") ?>
-	<form action="action_page.php" style="border:1px solid #ccc">
+	<form action="signup_cntrllr.php" method="POST" style="border:1px solid #ccc">
 		<div class="container">
 			<h3>Please fill in this form to create an account.</h3>
 			<hr>
