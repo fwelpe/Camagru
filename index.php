@@ -2,7 +2,7 @@
 session_start();
 if (!$_SESSION["user"])
 	header("Location: login.php")
-?>
+	?>
 
 <!DOCTYPE HTML>
 <html>
@@ -27,7 +27,7 @@ if (!$_SESSION["user"])
 			} else {
 				$path = $dir . $files[$i];
 				echo "<img id=" . $files[$i] .
-				" class='sticker' src='$path' alt='' />";
+					" class='sticker' src='$path' alt='' />";
 			}
 		}
 		?>
@@ -96,24 +96,26 @@ if (!$_SESSION["user"])
 					out.src = URL.createObjectURL(blob)
 				})
 				.catch((err) => {
-					// console.error(err);
+					console.error(err);
 				});
 		}
-		navigator.mediaDevices.getUserMedia(constraints)
-			.then((mediaStream) => {
-				video.srcObject = mediaStream;
-				video.onloadedmetadata = () => {
-					video.play();
-				};
-				video.addEventListener("click", () => {
-					context.drawImage(video, 0, 0, canvas.width, canvas.height);
-					data.capturedURI = canvas.toDataURL();
-					result_req(data);
+		if (navigator.mediaDevices) {
+			navigator.mediaDevices.getUserMedia(constraints)
+				.then((mediaStream) => {
+					video.srcObject = mediaStream;
+					video.onloadedmetadata = () => {
+						video.play();
+					};
+					video.addEventListener("click", () => {
+						context.drawImage(video, 0, 0, canvas.width, canvas.height);
+						data.capturedURI = canvas.toDataURL();
+						result_req(data);
+					})
 				})
-			})
-			.catch((err) => {
-				// console.error(err);
-			});
+				.catch((err) => {
+					console.error(err);
+				});
+		};
 		ids.forEach((id) => {
 			const domEl = document.getElementById(id);
 			if (!domEl) {
@@ -131,7 +133,6 @@ if (!$_SESSION["user"])
 			data.height = e.clientY - rect.top;
 			result_req(data);
 		})
-		console.log(window);
 	</script>
 </body>
 
