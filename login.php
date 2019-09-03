@@ -1,22 +1,5 @@
 <?php
-session_start();
-require("config/database.php");
-if ($_POST && $_POST["uname"]) {
-	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
-	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$q = $pdo->prepare("SELECT hash FROM users WHERE name = :name");
-	$q->bindParam(':name', $_POST["uname"]);
-	$q->execute();
-	$hash = $q->fetch()["hash"];
-	$hash_in = hash('gost-crypto', $_POST["psw"]);
-	/* echo $hash;
-	echo "<br /><br /><br />";
-	echo $hash_in; */
-	if ($hash == $hash_in) {
-		$_SESSION["user"] = $_POST["uname"];
-		header("Location: index.php");
-	}
-}
+require_once("config/setup.php");
 ?>
 
 <!DOCTYPE html>
@@ -102,9 +85,7 @@ if ($_POST && $_POST["uname"]) {
 
 <body>
 	<?php include("header2.html") ?>
-	<form action="#" method="POST">
-
-
+	<form action="login_cntrllr.php" method="POST">
 		<div class="container">
 			<label for="uname"><b>Username</b></label>
 			<input type="text" placeholder="Enter Username" name="uname" required>
@@ -113,15 +94,12 @@ if ($_POST && $_POST["uname"]) {
 			<input type="password" placeholder="Enter Password" name="psw" required>
 
 			<button type="submit">Login</button>
-
 		</div>
-
 		<div class="container" style="background-color:#f1f1f1">
 			<button type="button" class="cancelbtn">Cancel</button>
 			<span class="psw">Forgot <a href="#">password?</a></span>
 		</div>
 	</form>
-
 </body>
 
 </html>

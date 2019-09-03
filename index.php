@@ -2,7 +2,7 @@
 session_start();
 if (!$_SESSION["user"])
 	header("Location: login.php")
-	?>
+?>
 
 <!DOCTYPE HTML>
 <html>

@@ -98,14 +98,19 @@
 	<?php include("header2.html") ?>
 	<form action="signup_cntrllr.php" method="POST" style="border:1px solid #ccc">
 		<div class="container">
-			<h3>Please fill in this form to create an account.</h3>
+			<h1>Register</h1>
+			<p>Please fill in this form to create an account.</p>
+
+
 			<hr>
 
 			<label for="email"><b>Email</b></label>
+			<p>E-mail must be correct.</p>
 			<input type="text" placeholder="Enter Email" name="email" required>
 
 			<label for="psw"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="" required>
+			<p>Password must be at least 8 characters long.</p>
+			<input type="password" placeholder="Enter Password" name="psw" required>
 
 			<label for="psw-repeat"><b>Repeat Password</b></label>
 			<input type="password" placeholder="Repeat Password" name="psw-repeat" required>
