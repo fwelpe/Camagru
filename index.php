@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!$_SESSION["user"])
+if (!$_SESSION || !$_SESSION["user"])
 	header("Location: login.php")
-?>
+	?>
 
 <!DOCTYPE HTML>
 <html>
@@ -88,15 +88,13 @@ if (!$_SESSION["user"])
 					body: JSON.stringify(data)
 				})
 				.then((r) => {
-					// console.log(r);
 					return r.blob()
 				})
 				.then((blob) => {
-					// console.log(blob);
 					out.src = URL.createObjectURL(blob)
 				})
 				.catch((err) => {
-					console.error(err);
+					// console.error(err);
 				});
 		}
 		if (navigator.mediaDevices) {
@@ -113,7 +111,7 @@ if (!$_SESSION["user"])
 					})
 				})
 				.catch((err) => {
-					console.error(err);
+					// console.error(err);
 				});
 		};
 		ids.forEach((id) => {

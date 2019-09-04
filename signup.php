@@ -100,9 +100,10 @@
 		<div class="container">
 			<h1>Register</h1>
 			<p>Please fill in this form to create an account.</p>
-
-
 			<hr>
+
+			<label for="name"><b>Name</b></label>
+			<input type="text" placeholder="Enter Nickname" name="name" required>
 
 			<label for="email"><b>Email</b></label>
 			<p>E-mail must be correct.</p>

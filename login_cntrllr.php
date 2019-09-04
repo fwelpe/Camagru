@@ -8,7 +8,7 @@ if ($_POST && $_POST["uname"]) {
 	$q->bindParam(':name', $_POST["uname"]);
 	$q->execute();
 	$result = $q->fetch();
-	// var_dump($result);
+	$pdo = null;
 	$hash = $result["hash"];
 	$hash_in = hash('gost-crypto', $_POST["psw"]);
 	if ($hash !== $hash_in)
