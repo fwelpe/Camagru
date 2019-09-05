@@ -4,16 +4,16 @@ function email_validate($mailstr)
 	return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $mailstr)) ? FALSE : TRUE;
 }
 
-function user_validate() {
+function user_exists($nm) {
 	require("config/database.php");
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$q = $pdo->prepare("SELECT * FROM users WHERE name = :name");
-	$q->bindParam(':name', $_POST["name"]);
+	$q->bindParam(':name', $nm);
 	$q->execute();
-	$result = $q->fetch();
+	$user_exists = $q->fetch();
 	$pdo = null;
-	return (!$result);
+	return ($user_exists);
 }
 
 function form_validate()
@@ -24,7 +24,7 @@ function form_validate()
 		return "wrong mail";
 	else if (strlen($_POST["name"]) > 32)
 		return "username is too long. max 32 characters";
-	else if (!user_validate())
+	else if (user_exists($_POST["name"]))
 		return "name already exists";
 	else if ($_POST["psw"] !== $_POST["psw-repeat"])
 		return "passwords don't match";
