@@ -35,9 +35,10 @@ function form_validate()
 
 function send_confirm($name, $email) {
 	require("config/site.php");
-	$conf_link = "http://" . $ADDR . "/confirm.php?uname=" . $name;
-	$msg = "Please, confirm your account, using this link: " .$conf_link;
-	return mail($email, "Confirmation link (Camagru)", $msg);
+	$conf_link = "http://" . $ADDR . "/confirm_cntrllr.php?uname=" . $name;
+	$msg = "Please, confirm your account, using this link:\n" .$conf_link;
+	$headers = array('From' => 'sendbot@camagru.com');
+	return mail($email, "Confirmation link (Camagru)", $msg, $headers);
 }
 
 $post_chk = form_validate();

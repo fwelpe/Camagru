@@ -2,10 +2,11 @@
 function send_recover($name, $email, $token) {
 	require("config/site.php");
 	$link = "http://" . $ADDR . "/recover.php?uname=" . $name . "&token=" . $token;
-	$msg = "To reset your password, follow this link: " .$link;
+	$msg = "To reset your password, follow this link:\n" .$link;
 	$msg .= "\nRecovery link expires in 1 hour.";
-	// return mail($email, "Password reset (Camagru)", $msg);
-	return $msg;
+	$headers = array('From' => 'sendbot@camagru.com');
+	// echo $link . "<br />";
+	return mail($email, "Password reset (Camagru)", $msg, $headers);
 }
 
 function user_email($nm) {
@@ -37,10 +38,8 @@ else {
 	$q->bindParam(':t', $token);
 	$q->execute();
 	$pdo = null;
-	echo "token set";
-	echo "<br />";
-	echo $email;
-	echo "<br />";
-	echo send_recover($_POST["name"], $email, $token);
+	if (send_recover($_POST["name"], $email, $token))
+		echo "email sent";
+	else
+		echo "email failed. internal server problem";
 }
-?>

@@ -7,6 +7,6 @@ if ($_GET && array_key_exists("uname", $_GET)) {
 	$q->bindParam(':name', $_GET["uname"]);
 	$q->execute();
 	$pdo = null;
-	echo "confirmed";
+	echo "account activated";
 }
 ?>

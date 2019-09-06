@@ -14,6 +14,8 @@
 	<form action="forgot_cntrllr.php" method="POST" style="border:1px solid #ccc">
 		<div class="container">
 			<h1>Password recovery</h1>
+			<p>Please fill in your nickname and we will send you password reset link.</p>
+
 			<label for="name"><b>Name</b></label>
 			<input type="text" placeholder="Enter Nickname" name="name" required>
 
