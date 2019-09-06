@@ -3,26 +3,28 @@ function send_recover($name, $email, $token) {
 	require("config/site.php");
 	$link = "http://" . $ADDR . "/recover.php?uname=" . $name . "&token=" . $token;
 	$msg = "To reset your password, follow this link: " .$link;
-	return mail($email, "Password reset (Camagru)", $msg);
+	$msg .= "\nRecovery link expires in 1 hour.";
+	// return mail($email, "Password reset (Camagru)", $msg);
+	return $msg;
 }
 
-function user_exists($nm) {
+function user_email($nm) {
 	require("config/database.php");
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$q = $pdo->prepare("SELECT * FROM users WHERE name = :name");
+	$q = $pdo->prepare("SELECT email FROM users WHERE name = :name");
 	$q->bindParam(':name', $nm);
 	$q->execute();
-	$user_exists = $q->fetch();
+	$email = $q->fetch()["email"];
 	$pdo = null;
-	return ($user_exists);
+	return ($email);
 }
 
 if (!$_POST)
 	echo "no POST";
 else if (!$_POST["name"])
 	echo "oops you just broke my site! very well done";
-else if (!user_exists($_POST["name"]))
+else if (!($email = user_email($_POST["name"])))
 	echo "wrong username";
 else {
 	require("config/database.php");
@@ -36,5 +38,9 @@ else {
 	$q->execute();
 	$pdo = null;
 	echo "token set";
+	echo "<br />";
+	echo $email;
+	echo "<br />";
+	echo send_recover($_POST["name"], $email, $token);
 }
 ?>
