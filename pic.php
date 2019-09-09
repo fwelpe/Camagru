@@ -2,6 +2,7 @@
 $json_recieved = json_decode(file_get_contents('php://input'), true);
 $capturedURI = explode(',', $json_recieved["capturedURI"])[1];
 $mainpic = imagecreatefromstring(base64_decode($capturedURI));
+$mainpic = imagescale($mainpic, 500, 500);
 $sticker_path = 'stickers/src/' . $json_recieved["sticker_id"];
 if ($json_recieved["sticker_id"]) {
 	$stic_size = 200;

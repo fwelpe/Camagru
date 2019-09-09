@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION || !$_SESSION["user"])
+if (!array_key_exists("user", $_SESSION))
 	header("Location: login.php")
 	?>
 
@@ -36,11 +36,10 @@ if (!$_SESSION || !$_SESSION["user"])
 	<div id="flex">
 		<video id="video" autoplay width="500" height="500"></video>
 	</div>
-	<img id="out" src="NoImage.png" />
+	<img id="out" src="no-picture-yet.jpg" height="500" width="500" />
 	<canvas id="canvas"></canvas>
 	<form enctype="multipart/form-data">
-		<input type="file" id="customimg" />
-		<button type="button" onclick="upload_mainpic()">Enter</button>
+		<input type="file" id="customimg" onchange="upload_mainpic()" />
 	</form>
 	<script type='text/javascript'>
 		const video = document.querySelector('video');
@@ -63,7 +62,7 @@ if (!$_SESSION || !$_SESSION["user"])
 			capturedURI: null,
 		};
 
-		window.onload = () => {
+		window.onload = () => { // для работы стикеров со стоковым изображением в img id="out"
 			context.drawImage(out, 0, 0, canvas.width, canvas.height);
 			data.capturedURI = canvas.toDataURL();
 		};
@@ -98,23 +97,22 @@ if (!$_SESSION || !$_SESSION["user"])
 					// console.error(err);
 				});
 		}
-		if (navigator.mediaDevices) {
-			navigator.mediaDevices.getUserMedia(constraints)
-				.then((mediaStream) => {
-					video.srcObject = mediaStream;
-					video.onloadedmetadata = () => {
-						video.play();
-					};
-					video.addEventListener("click", () => {
-						context.drawImage(video, 0, 0, canvas.width, canvas.height);
-						data.capturedURI = canvas.toDataURL();
-						result_req(data);
-					})
+		navigator.mediaDevices.getUserMedia(constraints)
+			.then((mediaStream) => {
+				video.srcObject = mediaStream;
+				video.onloadedmetadata = () => {
+					video.play();
+				};
+				video.addEventListener("click", () => {
+					context.drawImage(video, 0, 0, canvas.width, canvas.height);
+					data.capturedURI = canvas.toDataURL();
+					result_req(data);
 				})
-				.catch((err) => {
-					// console.error(err);
-				});
-		};
+			})
+			.catch((err) => {
+				// console.error(err);
+				video.setAttribute("poster", "camera-not-available.png");
+			});
 		ids.forEach((id) => {
 			const domEl = document.getElementById(id);
 			if (!domEl) {
