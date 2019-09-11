@@ -10,5 +10,12 @@ if ($recorded) {
 	require("config/database.php");
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	// To be continued...
+	$q = $pdo->prepare(
+		"INSERT INTO pics (`picname`, `user`, `date`)
+		VALUES (:p, :u, NOW());"
+	);
+	$q->bindParam(':p', $randname);
+	$q->bindParam(':u', $_SESSION["user"]);
+	$q->execute();
+	$pdo = null;
 }

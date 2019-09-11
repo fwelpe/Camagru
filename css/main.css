@@ -34,8 +34,6 @@
 	float: right;
 }
 
-/* responsiveness */
-
 @media screen and (max-width: 500px) {
 	.header a {
 		float: none;
@@ -96,7 +94,6 @@ button {
 	padding: 14px 20px;
 	margin: 8px 0;
 	border: none;
-	cursor: pointer;
 	width: 100%;
 }
 
@@ -129,8 +126,6 @@ span.psw {
 	padding-top: 16px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-
 @media screen and (max-width: 300px) {
 	span.psw {
 		display: block;
@@ -139,4 +134,35 @@ span.psw {
 	.cancelbtn {
 		width: 100%;
 	}
+}
+
+div.gallery {
+	margin: 10px;
+	border: 1px solid #ccc;
+	float: left;
+	width: 300px;
+}
+
+div.gallery:hover {
+	border: 1px solid #777;
+}
+
+div.gallery img {
+	width: 100%;
+	height: auto;
+}
+
+div.desc {
+	padding: 15px;
+	text-align: center;
+}
+
+#video {
+	display: block;
+}
+
+#post {
+	width: 500px;
+	display: inline-block;
+	float: left;
 }

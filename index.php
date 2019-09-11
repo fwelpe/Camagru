@@ -11,8 +11,8 @@ if (!array_key_exists("user", $_SESSION))
 	<meta charset="utf-8" />
 	<title>Add Post</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="css/w3.css" />
 	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/w3.css" />
 </head>
 
 <body bgcolor="f2f1f3">
@@ -33,15 +33,33 @@ if (!array_key_exists("user", $_SESSION))
 		}
 		?>
 	</div>
-	<div id="flex">
+	<div id="post">
 		<video id="video" autoplay width="500" height="500"></video>
+		<img id="out" src="no-picture-yet.jpg" height="500" width="500" onerror="this.src = 'false-2061132_960_720.png';" />
+		<canvas id="canvas"></canvas>
+		<form enctype="multipart/form-data">
+			<input type="file" id="customimg" onchange="upload_mainpic()" />
+		</form>
+		<button id="postb" style="width: 500px;" onclick="post()" disabled="true">Post</button>
 	</div>
-	<img id="out" src="no-picture-yet.jpg" height="500" width="500" onerror="this.src = 'false-2061132_960_720.png';" />
-	<canvas id="canvas"></canvas>
-	<form enctype="multipart/form-data">
-		<input type="file" id="customimg" onchange="upload_mainpic()" />
-	</form>
-	<button style="width: 500px;" onclick="post()">Post</button>
+	<?php
+	require("config/database.php");
+	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$q = $pdo->prepare("SELECT * FROM pics ORDER BY date");
+	$q->execute();
+	while ($result = $q->fetch()) {
+	?>
+		<div class='gallery'>
+		<a target="_blank" href="img_5terre.jpg">
+		<img src="<?php echo $result["picname"]?>" />
+		</a>
+		<div class='desc'>Add a description of the image here</div>
+		</div>
+	<?php
+	}
+	$pdo = null;
+	?>
 	<script type='text/javascript'>
 		const video = document.querySelector('video');
 		const canvas = document.getElementById('canvas');
@@ -67,8 +85,7 @@ if (!array_key_exists("user", $_SESSION))
 			context.drawImage(out, 0, 0, canvas.width, canvas.height);
 			const uri = canvas.toDataURL();
 			fetch('post.php', {
-					headers: {
-					},
+					headers: {},
 					method: "POST",
 					body: uri
 				})
@@ -136,6 +153,7 @@ if (!array_key_exists("user", $_SESSION))
 				domEl.addEventListener("click", () => {
 					data.sticker_id = id;
 					result_req(data);
+					document.getElementById("postb").removeAttribute("disabled");
 				})
 			}
 		});
