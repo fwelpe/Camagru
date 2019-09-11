@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!array_key_exists("user", $_SESSION))
-	header("Location: login.php")
-	?>
+	header("Location: login.php");
+?>
 
 <!DOCTYPE HTML>
 <html>
@@ -36,11 +36,12 @@ if (!array_key_exists("user", $_SESSION))
 	<div id="flex">
 		<video id="video" autoplay width="500" height="500"></video>
 	</div>
-	<img id="out" src="no-picture-yet.jpg" height="500" width="500" />
+	<img id="out" src="no-picture-yet.jpg" height="500" width="500" onerror="this.src = 'false-2061132_960_720.png';" />
 	<canvas id="canvas"></canvas>
 	<form enctype="multipart/form-data">
 		<input type="file" id="customimg" onchange="upload_mainpic()" />
 	</form>
+	<button style="width: 500px;" onclick="post()">Post</button>
 	<script type='text/javascript'>
 		const video = document.querySelector('video');
 		const canvas = document.getElementById('canvas');
@@ -62,6 +63,22 @@ if (!array_key_exists("user", $_SESSION))
 			capturedURI: null,
 		};
 
+		const post = () => {
+			context.drawImage(out, 0, 0, canvas.width, canvas.height);
+			const uri = canvas.toDataURL();
+			fetch('post.php', {
+					headers: {
+					},
+					method: "POST",
+					body: uri
+				})
+				.then((r) => {
+					alert('получилося');
+				})
+				.catch((err) => {
+					alert('не получилося');
+				});
+		}
 		window.onload = () => { // для работы стикеров со стоковым изображением в img id="out"
 			context.drawImage(out, 0, 0, canvas.width, canvas.height);
 			data.capturedURI = canvas.toDataURL();
@@ -115,9 +132,7 @@ if (!array_key_exists("user", $_SESSION))
 			});
 		ids.forEach((id) => {
 			const domEl = document.getElementById(id);
-			if (!domEl) {
-				// console.log(id);
-			} else {
+			if (domEl) {
 				domEl.addEventListener("click", () => {
 					data.sticker_id = id;
 					result_req(data);

@@ -11,6 +11,14 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS `users` (
 	`name` VARCHAR(32) UNIQUE,
 	`email` VARCHAR(100),
 	`confirmed` BOOLEAN DEFAULT 0,
-	`hash` VARCHAR(255)
+	`hash` VARCHAR(255),
+	`token` VARCHAR(255),
+	`token_expires` DATETIME
+  )");
+$pdo->exec("CREATE TABLE IF NOT EXISTS `pics` (
+	`id` INT AUTO_INCREMENT PRIMARY KEY,
+	`picname` VARCHAR(32) UNIQUE,
+	`user` VARCHAR(32),
+	`date` DATETIME
   )");
 $pdo = null;
