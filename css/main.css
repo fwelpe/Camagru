@@ -163,6 +163,16 @@ div.desc {
 
 #post {
 	width: 500px;
-	display: inline-block;
 	float: left;
+}
+
+#g {
+	float: left;
+	margin: 50px;
+	width: 300px;
+}
+
+#g2 {
+	/* display: flex; */
+	vertical-align: center;
 }
