@@ -39,6 +39,7 @@ session_start();
 		$pdo = null;
 		?>
 	</div>
+	<?php include("footer.html") ?>
 </body>
 
 </html>

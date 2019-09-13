@@ -1,6 +1,8 @@
 <?php
 session_start();
-if (!$_SESSION["user"])
+if (!$_SESSION)
+	header("Location: login.php");
+else if (!$_SESSION["user"])
 	header("Location: login.php");
 ?>
 
@@ -34,13 +36,17 @@ if (!$_SESSION["user"])
 		?>
 	</div>
 	<div id="post">
+		<p>Choose sticker by clicking on it ↑</p>
 		<video id="video" autoplay width="500" height="500"></video>
+		<p>Capture camera frame by clicking on video ↑</p>
 		<img id="out" src="no-picture-yet.jpg" height="500" width="500" onerror="this.src = 'x.png'" />
+		<p>And set sticker center ↑</p>
 		<canvas id="canvas"></canvas>
-		<form enctype="multipart/form-data">
+		<form enctype="multipart/form-data" id="customform">
 			<input type="file" id="customimg" onchange="upload_mainpic()" />
 		</form>
-		<button id="postb" style="width: 500px;" onclick="post()" disabled="true">Post</button>
+		<p>↑ (Optionally) upload custom image</p>
+		<button id="postb" style="width: 500px;" onclick="post()" disabled="true">Post result</button>
 	</div>
 	<div id="g">
 		<?php
@@ -83,21 +89,21 @@ if (!$_SESSION["user"])
 			sticker_id: null,
 			capturedURI: null,
 		};
+		const postb = document.getElementById("postb");
 
 		const post = () => {
 			context.drawImage(out, 0, 0, canvas.width, canvas.height);
 			const uri = canvas.toDataURL();
-			fetch('post.php', {
+			fetch('post_cntrllr.php', {
 					headers: {},
 					method: "POST",
 					body: uri
 				})
 				.then((r) => {
-					alert('получилося');
+					postb.setAttribute("disabled", "disabled");
+					postb.innerHTML = "Posted";
+					postb.setAttribute("style", "opacity: 0.8");
 				})
-				.catch((err) => {
-					alert('не получилося');
-				});
 		}
 		window.onload = () => { // для работы стикеров со стоковым изображением в img id="out"
 			context.drawImage(out, 0, 0, canvas.width, canvas.height);
@@ -160,7 +166,7 @@ if (!$_SESSION["user"])
 				domEl.addEventListener("click", () => {
 					data.sticker_id = id;
 					result_req(data);
-					document.getElementById("postb").removeAttribute("disabled");
+					postb.removeAttribute("disabled");
 				})
 			}
 		});
@@ -171,6 +177,7 @@ if (!$_SESSION["user"])
 			result_req(data);
 		})
 	</script>
+	<?php include("footer.html") ?>
 </body>
 
 </html>

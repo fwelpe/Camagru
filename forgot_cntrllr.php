@@ -24,9 +24,7 @@ if (!$_POST)
 	echo "no POST";
 else if (!$_POST["name"])
 	echo "oops you just broke my site! very well done";
-else if (!($email = user_email($_POST["name"])))
-	echo "wrong username";
-else {
+else if ($email = user_email($_POST["name"])) {
 	require("config/database.php");
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

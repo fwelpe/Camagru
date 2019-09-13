@@ -30,6 +30,7 @@ require_once("config/setup.php");
 			<span class="psw">Forgot <a href="forgot.php">password?</a></span>
 		</div>
 	</form>
+	<?php include("footer.html") ?>
 </body>
 
 </html>

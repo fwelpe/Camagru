@@ -4,7 +4,7 @@
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	<title>Sign up</title>
+	<title>Sign Up</title>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='css/w3.css'>
@@ -22,11 +22,9 @@
 			<input type="text" placeholder="Enter Nickname" name="name" required>
 
 			<label for="email"><b>Email</b></label>
-			<p>E-mail must be correct.</p>
-			<input type="text" placeholder="Enter Email" name="email" required>
+			<input type="text" placeholder="E-mail must be correct." name="email" required>
 
-			<label for="psw"><b>Password</b></label>
-			<p>Password must be at least 8 characters long.</p>
+			<label for="psw"><b>Password (must be at least 8 characters long)</b></label>
 			<input type="password" placeholder="Enter Password" name="psw" required>
 
 			<label for="psw-repeat"><b>Repeat Password</b></label>
@@ -36,6 +34,7 @@
 			</div>
 		</div>
 	</form>
+	<?php include("footer.html") ?>
 </body>
 
 </html>

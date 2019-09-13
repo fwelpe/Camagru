@@ -19,9 +19,10 @@
 			<label for="name"><b>Name</b></label>
 			<input type="text" placeholder="Enter Nickname" name="name" required>
 
-			<button type="submit">Sign Up</button>
+			<button type="submit">Send</button>
 		</div>
 	</form>
+	<?php include("footer.html") ?>
 </body>
 
 </html>
