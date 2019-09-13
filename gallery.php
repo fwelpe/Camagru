@@ -15,12 +15,13 @@ session_start();
 
 <body bgcolor="f2f1f3">
 	<?php
-		if (!array_key_exists("user", $_SESSION))
+	if (!$_SESSION["user"])
 		include("header2.html");
-		else
+	else
 		include("header.html");
-		echo '<div id="g2">';
-		require("config/database.php");
+	?>
+	<div id="g2">
+		<?php require("config/database.php");
 		$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$q = $pdo->prepare("SELECT * FROM pics ORDER BY date");

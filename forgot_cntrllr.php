@@ -4,8 +4,7 @@ function send_recover($name, $email, $token) {
 	$link = "http://" . $ADDR . "/recover.php?uname=" . $name . "&token=" . $token;
 	$msg = "To reset your password, follow this link:\n" .$link;
 	$msg .= "\nRecovery link expires in 1 hour.";
-	$headers = array('From' => 'sendbot@camagru.com');
-	// echo $link . "<br />";
+	$headers = "From: sendbot@camagru.com";
 	return mail($email, "Password reset (Camagru)", $msg, $headers);
 }
 

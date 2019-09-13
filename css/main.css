@@ -34,17 +34,6 @@
 	float: right;
 }
 
-@media screen and (max-width: 500px) {
-	.header a {
-		float: none;
-		display: block;
-		text-align: left;
-	}
-	.header-right {
-		float: none;
-	}
-}
-
 body {
 	color: #1c1c1c;
 }
@@ -107,16 +96,6 @@ button:hover {
 	background-color: #f44336;
 }
 
-.imgcontainer {
-	text-align: center;
-	margin: 24px 0 12px 0;
-}
-
-img.avatar {
-	width: 40%;
-	border-radius: 50%;
-}
-
 .container {
 	padding: 16px;
 }
@@ -126,21 +105,9 @@ span.psw {
 	padding-top: 16px;
 }
 
-@media screen and (max-width: 300px) {
-	span.psw {
-		display: block;
-		float: none;
-	}
-	.cancelbtn {
-		width: 100%;
-	}
-}
-
 div.gallery {
 	margin: 10px;
 	border: 1px solid #ccc;
-	float: left;
-	width: 300px;
 }
 
 div.gallery:hover {
@@ -168,11 +135,12 @@ div.desc {
 
 #g {
 	float: left;
-	margin: 50px;
+	margin: 40px;
 	width: 300px;
 }
 
 #g2 {
-	/* display: flex; */
-	vertical-align: center;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
 }
