@@ -15,7 +15,9 @@ session_start();
 
 <body bgcolor="f2f1f3">
 	<?php
-	if (!$_SESSION["user"])
+	if (!$_SESSION)
+		include("header2.html");
+	else if (!$_SESSION["user"])
 		include("header2.html");
 	else
 		include("header.html");
@@ -29,10 +31,10 @@ session_start();
 		while ($result = $q->fetch()) {
 			?>
 			<div class='gallery'>
-				<a target="_blank" href="img_5terre.jpg">
+				<a target="_blank" href="image.php?pic=<?php echo $result["picname"] ?>">
 					<img src="<?php echo $result["picname"] ?>" />
 				</a>
-				<div class='desc'>Add a description of the image here</div>
+				<div class='desc'><?php echo $result["user"] . ", at " . $result["date"] ?></div>
 			</div>
 		<?php
 		}

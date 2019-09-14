@@ -21,4 +21,17 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS `pics` (
 	`user` VARCHAR(32),
 	`date` DATETIME
   )");
+$pdo->exec("CREATE TABLE IF NOT EXISTS `likes` (
+	`id` INT AUTO_INCREMENT PRIMARY KEY,
+	`picname` VARCHAR(32),
+	`user` VARCHAR(32),
+	`type` BOOLEAN
+  )");
+$pdo->exec("CREATE TABLE IF NOT EXISTS `comments` (
+	`id` INT AUTO_INCREMENT PRIMARY KEY,
+	`picname` VARCHAR(32),
+	`user` VARCHAR(32),
+	`date` DATETIME,
+	`comment` VARCHAR(5000)
+  )");
 $pdo = null;

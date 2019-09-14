@@ -46,7 +46,7 @@ else if (!$_SESSION["user"])
 			<input type="file" id="customimg" onchange="upload_mainpic()" />
 		</form>
 		<p>↑ (Optionally) upload custom image</p>
-		<button id="postb" style="width: 500px;" onclick="post()" disabled="true">Post result</button>
+		<button id="postb" style="width: 500px;" onclick="post()" disabled>Post result</button>
 	</div>
 	<div id="g">
 		<?php
@@ -88,6 +88,7 @@ else if (!$_SESSION["user"])
 			height: 250,
 			sticker_id: null,
 			capturedURI: null,
+			nopic: true
 		};
 		const postb = document.getElementById("postb");
 
@@ -101,7 +102,7 @@ else if (!$_SESSION["user"])
 				})
 				.then((r) => {
 					postb.setAttribute("disabled", "disabled");
-					postb.innerHTML = "Posted";
+					postb.innerHTML = "<b>UPLOADED</b>";
 					postb.setAttribute("style", "opacity: 0.8");
 				})
 		}
@@ -116,6 +117,7 @@ else if (!$_SESSION["user"])
 				reader.onload = (e) => {
 					out.src = e.target.result;
 					data.capturedURI = e.target.result;
+					data.nopic = false;
 					result_req(data);
 				}
 				reader.readAsDataURL(customimg.files[0]);
@@ -135,6 +137,8 @@ else if (!$_SESSION["user"])
 				})
 				.then((blob) => {
 					out.src = URL.createObjectURL(blob)
+					if (!data.nopic && data.sticker_id)
+						postb.removeAttribute("disabled");
 				})
 				.catch((err) => {
 					// console.error(err);
@@ -150,6 +154,7 @@ else if (!$_SESSION["user"])
 					video.addEventListener("click", () => {
 						context.drawImage(video, 0, 0, canvas.width, canvas.height);
 						data.capturedURI = canvas.toDataURL();
+						data.nopic = false;
 						result_req(data);
 					})
 				})
@@ -166,7 +171,6 @@ else if (!$_SESSION["user"])
 				domEl.addEventListener("click", () => {
 					data.sticker_id = id;
 					result_req(data);
-					postb.removeAttribute("disabled");
 				})
 			}
 		});

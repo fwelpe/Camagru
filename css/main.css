@@ -34,6 +34,18 @@
 	float: right;
 }
 
+@media screen and (max-width: 600px) {
+	.header a {
+	  float: none;
+	  display: block;
+	  text-align: left;
+	}
+
+	.header-right {
+	  float: none;
+	}
+  }
+
 body {
 	color: #1c1c1c;
 }
@@ -54,10 +66,7 @@ body {
 }
 
 .sticker {
-	max-width: 230px;
-	max-height: 95px;
-	width: auto;
-	height: auto;
+	height: 95px;
 }
 
 body {
@@ -106,7 +115,7 @@ span.psw {
 }
 
 div.gallery {
-	margin: 10px;
+	margin: 30px;
 	border: 1px solid #ccc;
 }
 
@@ -162,4 +171,8 @@ footer {
 	font-size: 18px;
 	line-height: 25px;
 	border-radius: 4px;
+}
+
+#oneimg {
+	margin-top: 30px;
 }
