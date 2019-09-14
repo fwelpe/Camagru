@@ -169,6 +169,6 @@ class __TwigTemplate_1c1f09ffd0db8b05f5aadc7c8eed2a2db5b4d656bb76baedfb72d71af10
 
     public function getSourceContext()
     {
-        return new Source("", "display/results/options_block.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/display/results/options_block.twig");
+        return new Source("", "display/results/options_block.twig", "/Users/cdenys-a/Camagru/pMA/templates/display/results/options_block.twig");
     }
 }

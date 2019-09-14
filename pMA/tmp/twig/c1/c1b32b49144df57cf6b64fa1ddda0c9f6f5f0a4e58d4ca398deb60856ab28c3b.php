@@ -93,6 +93,6 @@ class __TwigTemplate_7c782d37d64ae0c328e3855f77ce260b8cb3ed39f895810f8d82e2ed85b
 
     public function getSourceContext()
     {
-        return new Source("", "display/results/show_all_checkbox.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/display/results/show_all_checkbox.twig");
+        return new Source("", "display/results/show_all_checkbox.twig", "/Users/cdenys-a/Camagru/pMA/templates/display/results/show_all_checkbox.twig");
     }
 }

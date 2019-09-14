@@ -65,6 +65,6 @@ class __TwigTemplate_2049a090c37f113cd9e880e4fc50eff913beab4bc778e17e40f636922b8
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/browse_table_label.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/database/structure/browse_table_label.twig");
+        return new Source("", "database/structure/browse_table_label.twig", "/Users/cdenys-a/Camagru/pMA/templates/database/structure/browse_table_label.twig");
     }
 }

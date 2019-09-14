@@ -95,6 +95,6 @@ class __TwigTemplate_8e057c13c547de5f3a16fd215a458e941f94f0405f89dae76bfc76d5191
 
     public function getSourceContext()
     {
-        return new Source("", "console/query_action.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/console/query_action.twig");
+        return new Source("", "console/query_action.twig", "/Users/cdenys-a/Camagru/pMA/templates/console/query_action.twig");
     }
 }

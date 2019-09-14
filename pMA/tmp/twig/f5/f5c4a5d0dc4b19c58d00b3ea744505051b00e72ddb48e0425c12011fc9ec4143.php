@@ -82,6 +82,6 @@ class __TwigTemplate_6b83527a97b2508b641e62343f053a9e55c2136fb049f05293fce3f8cb8
 
     public function getSourceContext()
     {
-        return new Source("", "server/sub_page_header.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/server/sub_page_header.twig");
+        return new Source("", "server/sub_page_header.twig", "/Users/cdenys-a/Camagru/pMA/templates/server/sub_page_header.twig");
     }
 }

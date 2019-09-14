@@ -89,6 +89,6 @@ class __TwigTemplate_a434f34370e2cbd904991fed1fb85a1e8a4bff53013470a889545bec460
 
     public function getSourceContext()
     {
-        return new Source("", "server/databases/databases_header.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/server/databases/databases_header.twig");
+        return new Source("", "server/databases/databases_header.twig", "/Users/cdenys-a/Camagru/pMA/templates/server/databases/databases_header.twig");
     }
 }

@@ -226,6 +226,6 @@ class __TwigTemplate_cbb1392dc3e9dfaba69a1ef8fca114d89c0bc5f164f931358d804763b7e
 
     public function getSourceContext()
     {
-        return new Source("", "server/databases/table_row.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/server/databases/table_row.twig");
+        return new Source("", "server/databases/table_row.twig", "/Users/cdenys-a/Camagru/pMA/templates/server/databases/table_row.twig");
     }
 }

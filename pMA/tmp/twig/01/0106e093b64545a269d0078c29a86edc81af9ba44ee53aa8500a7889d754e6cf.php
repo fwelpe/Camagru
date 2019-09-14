@@ -146,6 +146,6 @@ $context["stat_name"], "sort_order" => ((((                // line 18
 
     public function getSourceContext()
     {
-        return new Source("", "server/databases/table_header.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/server/databases/table_header.twig");
+        return new Source("", "server/databases/table_header.twig", "/Users/cdenys-a/Camagru/pMA/templates/server/databases/table_header.twig");
     }
 }

@@ -109,6 +109,6 @@ class __TwigTemplate_0a873dbf2f9c8560864c51dc9d7b0603757f70859e2bdbed4540ddd01b8
 
     public function getSourceContext()
     {
-        return new Source("", "config/form_display/fieldset_top.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/config/form_display/fieldset_top.twig");
+        return new Source("", "config/form_display/fieldset_top.twig", "/Users/cdenys-a/Camagru/pMA/templates/config/form_display/fieldset_top.twig");
     }
 }

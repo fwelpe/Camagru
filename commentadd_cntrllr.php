@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-function prereq() {
+function prereq()
+{
 	if (!$_SESSION["user"])
 		return false;
 	else if (!$_POST["comment"])
@@ -26,6 +27,15 @@ if (prereq()) {
 	$q->bindParam(':u', $_SESSION["user"]);
 	$q->bindParam(':c', $c);
 	$result = $q->execute();
+	$q = $pdo->prepare("SELECT notify FROM users WHERE name = :n");
+	$q->bindParam(':n', $_SESSION["user"]);
+	if ($q->execute()["notify"]) {
+		require("config/site.php");
+		$link = "http://" . $ADDR . "/image.php?pic=" . $_POST["pic"];
+		$msg = $link;
+		$headers = "From: sendbot@camagru.com";
+		mail($email, "You have new comment! (Camagru)", $msg, $headers);
+	}
 	$pdo = null;
 	if ($result)
 		echo "commented";

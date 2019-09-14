@@ -81,6 +81,6 @@ class __TwigTemplate_bafaa5ad02371281b4eeff5fcd985ceb787a498a7386cf15a9d55e61592
 
     public function getSourceContext()
     {
-        return new Source("", "display/results/additional_fields.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/display/results/additional_fields.twig");
+        return new Source("", "display/results/additional_fields.twig", "/Users/cdenys-a/Camagru/pMA/templates/display/results/additional_fields.twig");
     }
 }

@@ -66,6 +66,6 @@ if (typeof configScriptLoaded !== \"undefined\" && configInlineParams) loadInlin
 
     public function getSourceContext()
     {
-        return new Source("", "javascript/display.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/javascript/display.twig");
+        return new Source("", "javascript/display.twig", "/Users/cdenys-a/Camagru/pMA/templates/javascript/display.twig");
     }
 }

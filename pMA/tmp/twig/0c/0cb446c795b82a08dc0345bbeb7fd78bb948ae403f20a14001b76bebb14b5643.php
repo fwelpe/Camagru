@@ -90,6 +90,6 @@ class __TwigTemplate_d432b395f096339c1f58318e5274aa48f954657009d642a1b3f1de04e38
 
     public function getSourceContext()
     {
-        return new Source("", "radio_fields.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/radio_fields.twig");
+        return new Source("", "radio_fields.twig", "/Users/cdenys-a/Camagru/pMA/templates/radio_fields.twig");
     }
 }

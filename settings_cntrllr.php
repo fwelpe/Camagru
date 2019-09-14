@@ -48,15 +48,17 @@ else {
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$q = $pdo->prepare(
-		"UPDATE users SET name = :n, email = :e, hash = :h WHERE name = :u"
+		"UPDATE users SET name = :n, email = :e, hash = :h, notify = :notif WHERE name = :u"
 	);
 	$n = htmlentities($_POST["name"]);
 	$e = htmlentities($_POST["email"]);
 	$hashed_psw = hash('gost-crypto', $_POST["psw"]);
+	$notif = isset($_POST['notify']) ? "1" : "0";
 	$q->bindParam(':n', $n);
 	$q->bindParam(':e', $e);
 	$q->bindParam(':h', $hashed_psw);
 	$q->bindParam(':u', $_SESSION["user"]);
+	$q->bindParam(':notif', $notif);
 	$result = $q->execute();
 	$q = $pdo->prepare(
 		"UPDATE pics SET user = :n WHERE user = :u"

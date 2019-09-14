@@ -1,4 +1,5 @@
 <?php
+require_once("config/setup.php");
 session_start();
 if (!$_SESSION)
 	header("Location: login.php");

@@ -63,6 +63,6 @@ class __TwigTemplate_9735dc4caa16940aeeca8999b9ae4f11cc1e8b1e8d05409d0895cf0c0a4
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/browse_table.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/database/structure/browse_table.twig");
+        return new Source("", "database/structure/browse_table.twig", "/Users/cdenys-a/Camagru/pMA/templates/database/structure/browse_table.twig");
     }
 }

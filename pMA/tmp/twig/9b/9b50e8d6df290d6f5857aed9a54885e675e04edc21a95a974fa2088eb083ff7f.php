@@ -51,6 +51,6 @@ class __TwigTemplate_43905b497f106e43edbee8690383ce9b9dc605872dc12004ed90e5414c1
 
     public function getSourceContext()
     {
-        return new Source("", "config/form_display/tabs_bottom.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/config/form_display/tabs_bottom.twig");
+        return new Source("", "config/form_display/tabs_bottom.twig", "/Users/cdenys-a/Camagru/pMA/templates/config/form_display/tabs_bottom.twig");
     }
 }

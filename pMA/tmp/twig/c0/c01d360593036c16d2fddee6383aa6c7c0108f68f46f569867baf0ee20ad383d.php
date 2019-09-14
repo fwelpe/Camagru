@@ -90,6 +90,6 @@ class __TwigTemplate_2c71f1e318d14539d3de90fe7f6f2b9c91548a09820a30970e822acc6dc
 
     public function getSourceContext()
     {
-        return new Source("", "div_for_slider_effect.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/div_for_slider_effect.twig");
+        return new Source("", "div_for_slider_effect.twig", "/Users/cdenys-a/Camagru/pMA/templates/div_for_slider_effect.twig");
     }
 }

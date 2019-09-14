@@ -104,7 +104,7 @@ else if (!$_GET["pic"])
 	$pdo = null;
 	?>
 	<textarea name="comment" form="usrform" rows="6" placeholder="Type your comment..." required></textarea>
-	<form action="commentadd_cntrllr.php" method="POST" id="usrform">
+	<form action="commentadd_cntrllr.php" method="POST" id="usrform" target="_blank">
 		<input type="hidden" name="pic" value="<?php echo $_GET["pic"] ?>">
 		<input type="submit">
 	</form>

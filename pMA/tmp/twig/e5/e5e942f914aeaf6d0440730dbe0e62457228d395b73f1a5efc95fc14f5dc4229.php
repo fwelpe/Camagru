@@ -132,6 +132,6 @@ class __TwigTemplate_4bba1c64faf595c0d0ebf995298a8d08b6b0fd9b4b5f4db2f209e047468
 
     public function getSourceContext()
     {
-        return new Source("", "list/item.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/list/item.twig");
+        return new Source("", "list/item.twig", "/Users/cdenys-a/Camagru/pMA/templates/list/item.twig");
     }
 }

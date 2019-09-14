@@ -72,6 +72,6 @@ class __TwigTemplate_072ff2e8e3e43a3dd983a0f1bb02df0a9a46e00bc958119692dff267a85
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/print_view_data_dictionary_link.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/database/structure/print_view_data_dictionary_link.twig");
+        return new Source("", "database/structure/print_view_data_dictionary_link.twig", "/Users/cdenys-a/Camagru/pMA/templates/database/structure/print_view_data_dictionary_link.twig");
     }
 }

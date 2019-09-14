@@ -96,6 +96,6 @@ class __TwigTemplate_48229cb734d5ba2e686fbada48374abf0b7058744640cba1e3bbb565cea
 
     public function getSourceContext()
     {
-        return new Source("", "database/create_table.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/database/create_table.twig");
+        return new Source("", "database/create_table.twig", "/Users/cdenys-a/Camagru/pMA/templates/database/create_table.twig");
     }
 }

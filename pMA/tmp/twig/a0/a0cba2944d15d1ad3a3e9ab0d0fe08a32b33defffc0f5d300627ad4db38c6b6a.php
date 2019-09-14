@@ -89,6 +89,6 @@ class __TwigTemplate_1290a8e589265848861771acb8b8c2aca259c7fd98e95cc862e7d40033e
 
     public function getSourceContext()
     {
-        return new Source("", "console/toolbar.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/console/toolbar.twig");
+        return new Source("", "console/toolbar.twig", "/Users/cdenys-a/Camagru/pMA/templates/console/toolbar.twig");
     }
 }

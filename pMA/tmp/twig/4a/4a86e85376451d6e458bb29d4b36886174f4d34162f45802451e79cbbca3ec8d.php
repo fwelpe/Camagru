@@ -84,6 +84,6 @@ class __TwigTemplate_6ea4129a32d5a5f86f65a96c3c377794e01b8545051217a677ebfe8dbca
 
     public function getSourceContext()
     {
-        return new Source("", "navigation/logo.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/navigation/logo.twig");
+        return new Source("", "navigation/logo.twig", "/Users/cdenys-a/Camagru/pMA/templates/navigation/logo.twig");
     }
 }

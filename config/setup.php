@@ -13,7 +13,8 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS `users` (
 	`confirmed` BOOLEAN DEFAULT 0,
 	`hash` VARCHAR(255),
 	`token` VARCHAR(255),
-	`token_expires` DATETIME
+	`token_expires` DATETIME,
+	`notify` BOOLEAN DEFAULT 0
   )");
 $pdo->exec("CREATE TABLE IF NOT EXISTS `pics` (
 	`id` INT AUTO_INCREMENT PRIMARY KEY,

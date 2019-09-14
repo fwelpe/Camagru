@@ -79,6 +79,6 @@ class __TwigTemplate_7a8d7d032d3ef41af82b1153cf81bd437521b20a1b1bae933f60e38561e
 
     public function getSourceContext()
     {
-        return new Source("", "display/results/comment_for_row.twig", "/Users/cdenys-a/Camagru_github/pMA/templates/display/results/comment_for_row.twig");
+        return new Source("", "display/results/comment_for_row.twig", "/Users/cdenys-a/Camagru/pMA/templates/display/results/comment_for_row.twig");
     }
 }
