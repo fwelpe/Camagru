@@ -14,6 +14,15 @@ function prereq()
 	return true;
 }
 
+function get_username($picname) {
+	require("config/database.php");
+	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$q = $pdo->prepare("SELECT user FROM pics WHERE picname = :p");
+	$q->bindParam(':p', $picname);
+	return ($q->execute()["user"]);
+}
+
 if (prereq()) {
 	require("config/database.php");
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
@@ -27,14 +36,17 @@ if (prereq()) {
 	$q->bindParam(':u', $_SESSION["user"]);
 	$q->bindParam(':c', $c);
 	$result = $q->execute();
-	$q = $pdo->prepare("SELECT notify FROM users WHERE name = :n");
-	$q->bindParam(':n', $_SESSION["user"]);
-	if ($q->execute()["notify"]) {
+	$q = $pdo->prepare("SELECT * FROM users WHERE name = :n");
+	$commented_user = get_username($_POST["pic"]);
+	$q->bindParam(':n', $commented_user);
+	$commented_user_dbrow = $q->execute();
+	if ($commented_user_dbrow["notify"]) {
 		require("config/site.php");
 		$link = "http://" . $ADDR . "/image.php?pic=" . $_POST["pic"];
-		$msg = $link;
+		$msg = "See your post:\r\n" . PHP_EOL;
+		$msg .= $link;
 		$headers = "From: sendbot@camagru.com";
-		mail($email, "You have new comment! (Camagru)", $msg, $headers);
+		$result = mail($commented_user_dbrow["email"], "You have new comment! (Camagru)", $msg, $headers) && $result;
 	}
 	$pdo = null;
 	if ($result)

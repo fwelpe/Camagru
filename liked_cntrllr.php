@@ -10,8 +10,9 @@ else {
 	require("config/database.php");
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$q = $pdo->prepare("DELETE FROM likes WHERE user = :u");
+	$q = $pdo->prepare("DELETE FROM likes WHERE user = :u AND picname = :p");
 	$q->bindParam(':u', $_SESSION["user"]);
+	$q->bindParam(':p', $decoded["picname"]);
 	$q->execute();
 	$q = $pdo->prepare(
 		"INSERT INTO likes (`picname`, `user`, `type`)

@@ -35,12 +35,12 @@ else if (!$_GET["pic"])
 		<img src="<?php echo $_GET["pic"] ?>" id="oneimg" />
 	</center>
 	<div style="display: flex">
-		<img src="pics/like.png" width=50px onclick="like()">
+		<img src="pics/like.png" width=50px height=52px onclick="like()">
 		<p id="p_like"></p>
 	</div>
 	<br />
 	<div style="display: flex">
-		<img src="pics/dislike.png" width=50px onclick="dislike()">
+		<img src="pics/dislike.png" width=50px height=52px onclick="dislike()">
 		<p id="p_dislike"></p>
 	</div>
 	<script type='text/javascript'>

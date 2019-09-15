@@ -66,6 +66,18 @@ else {
 	$q->bindParam(':n', $n);
 	$q->bindParam(':u', $_SESSION["user"]);
 	$result = $q->execute() && $result;
+	$q = $pdo->prepare(
+		"UPDATE comments SET user = :n WHERE user = :u"
+	);
+	$q->bindParam(':n', $n);
+	$q->bindParam(':u', $_SESSION["user"]);
+	$result = $q->execute() && $result;
+	$q = $pdo->prepare(
+		"UPDATE likes SET user = :n WHERE user = :u"
+	);
+	$q->bindParam(':n', $n);
+	$q->bindParam(':u', $_SESSION["user"]);
+	$result = $q->execute() && $result;
 	$pdo = null;
 	if ($result) {
 		$_SESSION["user"] = $n;

@@ -38,7 +38,7 @@ if (!$_SESSION["user"])
 		return ($user);
 	}
 	?>
-	<form action="settings_cntrllr.php" method="POST" style="border:1px solid #ccc">
+	<form action="settings_cntrllr.php" method="POST" target="_blank" style="border:1px solid #ccc">
 		<div class="container">
 			<h1>Personal Info</h1>
 			<p>Please fill in this form to modify your account.</p>
