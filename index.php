@@ -36,11 +36,11 @@ else if (!$_SESSION["user"])
 		}
 		?>
 	</div>
-	<p>Choose sticker by clicking on it ↑</p>
 	<div id="post">
-		<video id="video" autoplay width="500" height="500"></video>
+		<p>Choose sticker by clicking on it ↑</p>
+		<video id="video" autoplay></video>
 		<p>Capture camera frame by clicking on video ↑</p>
-		<img id="out" src="no-picture-yet.jpg" height="500" width="500" onerror="this.src = 'x.png'" />
+		<img id="out" src="no-picture-yet.jpg" onerror="this.src = 'x.png'" />
 		<p>And set sticker center ↑</p>
 		<canvas id="canvas"></canvas>
 		<form enctype="multipart/form-data" id="customform">
@@ -94,6 +94,8 @@ else if (!$_SESSION["user"])
 		const postb = document.getElementById("postb");
 
 		const post = () => {
+			if (out.src === 'http://localhost:8080/x.png')
+				return;
 			context.drawImage(out, 0, 0, canvas.width, canvas.height);
 			const uri = canvas.toDataURL();
 			fetch('post_cntrllr.php', {

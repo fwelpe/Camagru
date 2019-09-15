@@ -18,9 +18,11 @@ function get_username($picname) {
 	require("config/database.php");
 	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$q = $pdo->prepare("SELECT user FROM pics WHERE picname = :p");
+	$q = $pdo->prepare("SELECT * FROM pics WHERE picname = :p");
 	$q->bindParam(':p', $picname);
-	return ($q->execute()["user"]);
+	$q->execute();
+	$r = $q->fetch()["user"];
+	return ($r);
 }
 
 if (prereq()) {
@@ -39,7 +41,8 @@ if (prereq()) {
 	$q = $pdo->prepare("SELECT * FROM users WHERE name = :n");
 	$commented_user = get_username($_POST["pic"]);
 	$q->bindParam(':n', $commented_user);
-	$commented_user_dbrow = $q->execute();
+	$q->execute();
+	$commented_user_dbrow = $q->fetch();
 	if ($commented_user_dbrow["notify"]) {
 		require("config/site.php");
 		$link = "http://" . $ADDR . "/image.php?pic=" . $_POST["pic"];
@@ -47,6 +50,7 @@ if (prereq()) {
 		$msg .= $link;
 		$headers = "From: sendbot@camagru.com";
 		$result = mail($commented_user_dbrow["email"], "You have new comment! (Camagru)", $msg, $headers) && $result;
+		error_log($commented_user_dbrow["email"], 4);
 	}
 	$pdo = null;
 	if ($result)
