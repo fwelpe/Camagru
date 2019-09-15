@@ -117,6 +117,7 @@ span.psw {
 div.gallery {
 	margin: 30px;
 	border: 1px solid #ccc;
+	max-width: 400px;
 }
 
 div.gallery:hover {
@@ -138,15 +139,14 @@ div.desc {
 }
 
 #post {
-	width: 500px;
+	max-width: 500px;
 	float: left;
 	margin-bottom: 50px;
 }
 
 #g {
 	float: left;
-	margin: 40px;
-	width: 300px;
+	display: flex;
 }
 
 #g2 {
@@ -175,4 +175,8 @@ footer {
 
 #oneimg {
 	margin-top: 30px;
+}
+
+.u_imgs {
+	max-width: 300px;
 }

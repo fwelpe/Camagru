@@ -36,8 +36,8 @@ else if (!$_SESSION["user"])
 		}
 		?>
 	</div>
+	<p>Choose sticker by clicking on it ↑</p>
 	<div id="post">
-		<p>Choose sticker by clicking on it ↑</p>
 		<video id="video" autoplay width="500" height="500"></video>
 		<p>Capture camera frame by clicking on video ↑</p>
 		<img id="out" src="no-picture-yet.jpg" height="500" width="500" onerror="this.src = 'x.png'" />
@@ -47,7 +47,7 @@ else if (!$_SESSION["user"])
 			<input type="file" id="customimg" onchange="upload_mainpic()" />
 		</form>
 		<p>↑ (Optionally) upload custom image</p>
-		<button id="postb" style="width: 500px;" onclick="post()" disabled>Post result</button>
+		<button id="postb" onclick="post()" disabled>Post result</button>
 	</div>
 	<div id="g">
 		<?php
